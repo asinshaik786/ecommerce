@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - MyShop</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet">
+      <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <a href="#">MyShop</a></div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <!-- Add a search bar -->
+            <li>
+                <form action="search.html" method="GET" class="search-form">
+                    <input type="text" name="query" placeholder="Search products...">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Products Page Content -->
+    <div class="container mt-4">
+        <h1>Products</h1>
+
+        <!-- Category Filter Buttons -->
+        <div class="filter-buttons">
+            <button class="btn btn-primary" onclick="filterProducts('all')">All</button>
+            <button class="btn btn-secondary" onclick="showSubCategories('electronics')">Electronics</button>
+            <button class="btn btn-secondary" onclick="showSubCategories('clothing')">Clothing</button>
+            <button class="btn btn-secondary" onclick="showSubCategories('groceries')">Groceries</button>
+            <button class="btn btn-secondary" onclick="showSubCategories('books')">Books</button>
+            <button class="btn btn-secondary" onclick="showSubCategories('beauty')">Beauty Products</button>
+        </div>
+
+        <!-- Sub-Category Filter Buttons -->
+        <div class="sub-filter-buttons" id="subFilterButtons">
+            <button class="btn btn-outline-secondary" onclick="filterSubCategory('all')">All</button>
+            <button class="btn btn-outline-secondary" data-category="electronics" onclick="filterSubCategory('mobile')">Mobile</button>
+            <button class="btn btn-outline-secondary" data-category="electronics" onclick="filterSubCategory('laptops')">Laptops</button>
+            <button class="btn btn-outline-secondary" data-category="electronics" onclick="filterSubCategory('speakers')">Speakers</button>
+            <button class="btn btn-outline-secondary" data-category="clothing" onclick="filterSubCategory('shirts')">Shirts</button>
+            <button class="btn btn-outline-secondary" data-category="clothing" onclick="filterSubCategory('Pants')">Pants</button>
+            <button class="btn btn-outline-secondary" data-category="groceries" onclick="filterSubCategory('Wheat Flour')">Wheat Flour</button>
+            <button class="btn btn-outline-secondary" data-category="groceries" onclick="filterSubCategory('Maida')">Maida</button>
+            <button class="btn btn-outline-secondary" data-category="books" onclick="filterSubCategory('EnglishStories')">EnglishStories</button>
+            <button class="btn btn-outline-secondary" data-category="books" onclick="filterSubCategory('TeluguStory')">TeluguStory</button>
+            <button class="btn btn-outline-secondary" data-category="beauty" onclick="filterSubCategory('Skincare')">Skincare</button>
+            <button class="btn btn-outline-secondary" data-category="beauty" onclick="filterSubCategory('Makeup')">Makeup</button>
+        </div>
+
+        <!-- Product List -->
+        <div class="row" id="product-list">
+            <!-- Product 1 -->
+            <div class="col-md-4 product-card" data-category="electronics" data-sub-category="mobile">
+                <img src="./images/vivo.jpg" alt="Product 1">
+                <h3>Smartphone</h3>
+                <p>$499.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4 product-card" data-category="electronics" data-sub-category="laptops">
+                <img src="./images/dell.jpg" alt="Product 2">
+                <h3>Laptop</h3>
+                <p>$999.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4 product-card" data-category="electronics" data-sub-category="speakers">
+                <img src="./images/Boat Bluetooth Speaker.jpg" alt="Product 3">
+                <h3>Boat Bluetooth Speaker</h3>
+                <p>$99.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="col-md-4 product-card" data-category="clothing" data-sub-category="shirts">
+                <img src="./images/shirt1.jpg" alt="Product 4">
+                <h3>Shirt</h3>
+                <p>$19.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+            <!-- Product 5 -->
+            <div class="col-md-4 product-card" data-category="clothing" data-sub-category="Pants">
+                <img src="./images/pant1.jpg" alt="Product 5">
+                <h3>Pant</h3>
+                <p>$39.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>  
+            <!-- Product 6 -->
+            <div class="col-md-4 product-card" data-category="groceries" data-sub-category="wheat flour">
+                <img src="./images/Wheat flour.jpg" alt="Product 6">
+                <h3>wheat Flour</h3>
+                <p>$4.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+            <!-- Product 7 -->
+            <div class="col-md-4 product-card" data-category="groceries" data-sub-category="Maida">
+                <img src="./images/Maida.jpg" alt="Product 7">
+                <h3>Organic Maida</h3>
+                <p>$5.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+            <!-- Product 8 -->
+            <div class="col-md-4 product-card" data-category="books" data-sub-category="EnglishStories">
+                <img src="./images/EnglishStories.jpg" alt="Product 8">
+                <h3>EnglishStories Books</h3>
+                <p>$14.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+            <!-- Product 9 -->
+            <div class="col-md-4 product-card" data-category="books" data-sub-category="TeluguStory">
+                <img src="./images/TeluguStory.jpg" alt="Product 9">
+                <h3>TeluguStory Book</h3>
+                <p>$19.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+            <!-- Product 10 -->
+            <div class="col-md-4 product-card" data-category="beauty" data-sub-category="Skincare">
+                <img src="./images/facecream.jpg" alt="Product 10">
+                <h3>Face Cream</h3>
+                <p>$29.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+            <!-- Product 11 -->
+            <div class="col-md-4 product-card" data-category="beauty" data-sub-category="Makeup">
+                <img src="./images/lipstick.jpg" alt="Product 11">
+                <h3>Lipstick</h3>
+                <p>$19.99</p>
+                <button class="btn btn-success">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 footer-content">
+                <h3> MyShop</h3>
+                <p>
+                  Kadapa<br>
+                  Andhra Pradesh<br>
+                  India<br>
+                </p>
+                <strong>Phone:</strong> +91 8121401037 <br>
+                <strong>Email:</strong>shaiksoftwaresolutions@gmail.com <br>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Usefull links</h4>
+                <ul>
+                  <li><a href="#">home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Term of Services</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#">electronics</a></li>
+                    <li><a href="#">clothings</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Beaty Products</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Social Networks</h4>
+                <div class="social-links mt-3">
+                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="#"><i class="fa-brands fa-skype"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container py-4">
+          <div class="copyright">
+            &copy;Copyright<strong><span> MyShop</span></strong>.All
+            Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by <a href="#">Shaik Software Solutions</a>
+            <div class="arrow">
+              <a href="#"><i class="fa-solid fa-angle-up"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--footer-->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for Filtering Products -->
+    <script>
+        // Function to redirect to product-view.html with product details
+function viewProduct(product) {
+    const queryParams = new URLSearchParams({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        category: product.category,
+        subCategory: product.subCategory
+    }).toString();
+
+    window.location.href = `product-view.html?${queryParams}`;
+}
+
+// Add click event listener to product images
+document.querySelectorAll(".product-card img").forEach(image => {
+    image.addEventListener("click", function () {
+        const productCard = this.closest(".product-card");
+        const product = {
+            id: productCard.getAttribute("data-category") + "-" + productCard.getAttribute("data-sub-category"),
+            name: productCard.querySelector("h3").textContent,
+            price: parseFloat(productCard.querySelector("p").textContent.replace("$", "")),
+            image: this.src,
+            category: productCard.getAttribute("data-category"),
+            subCategory: productCard.getAttribute("data-sub-category")
+        };
+
+        viewProduct(product);
+    });
+});
+       // Function to filter products by category
+function filterProducts(category) {
+    const products = document.querySelectorAll('.product-card');
+
+    products.forEach(product => {
+        const productCategory = product.getAttribute('data-category');
+
+        if (category === 'all' || productCategory === category) {
+            product.style.display = 'block'; // Show the product
+        } else {
+            product.style.display = 'none'; // Hide the product
+        }
+    });
+}
+
+// Function to filter products by sub-category
+function filterSubCategory(subCategory) {
+    const products = document.querySelectorAll('.product-card');
+
+    products.forEach(product => {
+        const productSubCategory = product.getAttribute('data-sub-category');
+
+        if (subCategory === 'all' || productSubCategory === subCategory) {
+            product.style.display = 'block'; // Show the product
+        } else {
+            product.style.display = 'none'; // Hide the product
+        }
+    });
+}
+
+// Function to show sub-category buttons based on the selected category
+function showSubCategories(category) {
+    const subFilterButtons = document.getElementById('subFilterButtons');
+    const subCategoryButtons = subFilterButtons.querySelectorAll('button');
+
+    // Hide all sub-category buttons by default
+    subCategoryButtons.forEach(button => {
+        button.style.display = 'none';
+    });
+
+    // Show the "All" button
+    subFilterButtons.querySelector('button[onclick="filterSubCategory(\'all\')"]').style.display = 'inline-block';
+
+    // Show sub-category buttons for the selected category
+    subFilterButtons.querySelectorAll(`button[data-category="${category}"]`).forEach(button => {
+        button.style.display = 'inline-block';
+    });
+
+    // Show the sub-filter buttons container
+    subFilterButtons.style.display = 'block';
+
+    // Filter products by the selected category
+    filterProducts(category);
+}
+
+// Add to Cart Functionality
+document.querySelectorAll(".btn-success").forEach(button => {
+    button.addEventListener("click", function () {
+        // Get product details from the card
+        const productCard = this.closest(".product-card");
+        const product = {
+            id: productCard.getAttribute("data-category") + "-" + productCard.getAttribute("data-sub-category"),
+            name: productCard.querySelector("h3").textContent,
+            price: parseFloat(productCard.querySelector("p").textContent.replace("$", "")),
+            image: productCard.querySelector("img").src,
+            quantity: 1 // Default quantity
+        };
+
+        addToCart(product);
+        alert(`${product.name} added to cart!`);
+    });
+});
+
+// Function to add product to cart
+function addToCart(product) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Check if the product is already in the cart
+    const existingProduct = cart.find(item => item.id === product.id);
+    if (existingProduct) {
+        existingProduct.quantity += 1; // Increase quantity if product already exists
+    } else {
+        cart.push(product); // Add new product to cart
+    }
+
+    // Save updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Initial filter based on URL query parameter
+function initializeFilter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+
+    if (category) {
+        showSubCategories(category); // Show sub-categories and filter products
+    } else {
+        filterProducts('all'); // Show all products by default
+    }
+}
+
+// Call the initializeFilter function when the page loads
+initializeFilter();
+    </script>
+</body>
+</html>

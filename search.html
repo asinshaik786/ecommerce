@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+     <a href="index.html">MyShop</a></div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</nav>
+    
+    <section class="search-results">
+        <h2>Search Results</h2>
+        <div class="product-list">
+            <!-- Search results will be dynamically added here -->
+            
+        </div>
+    </section>
+
+    
+        <!-- Footer -->
+      <footer id="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 footer-content">
+                <h3> MyShop</h3>
+                <p>
+                  Kadapa<br>
+                  Andhra Pradesh<br>
+                  India<br>
+                </p>
+                <strong>Phone:</strong> +91 8121401037 <br>
+                <strong>Email:</strong>shaiksoftwaresolutions@gmail.com <br>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Usefull links</h4>
+                <ul>
+                  <li><a href="#">home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Term of Services</a></li>
+                  <li><a href="#">Privacy Policy</a></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#">electronics</a></li>
+                    <li><a href="#">clothings</a></li>
+                    <li><a href="#">Groceries</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Beaty Products</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Our Social Networks</h4>
+                <div class="social-links mt-3">
+                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="#"><i class="fa-brands fa-skype"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="container py-4">
+          <div class="copyright">
+            &copy;Copyright<strong><span> MyShop</span></strong>.All
+            Rights Reserved
+          </div>
+          <div class="credits">
+            Designed by <a href="#">Shaik Software Solutions</a>
+            <div class="arrow">
+              <a href="#"><i class="fa-solid fa-angle-up"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--footer-->
+
+    <script>
+        // Product data
+        const products = [
+            {
+                id: "electronics-mobile",
+                name: "Vivo mobiles",
+                price: 499.99,
+                category: "electronics",
+                subCategory: "mobile",
+                image: "./images/vivo.jpg",
+                description: "vivo :RAM:8GB Storage:512GB"
+                
+            },
+            {
+                id: "electronics-mobile",
+                name: "oppo mobiles",
+                price: 499.99,
+                category: "electronics",
+                subCategory: "mobile",
+                image: "./images/oppo.jpg",
+                description: "vivo :RAM:8GB Storage:512GB"
+            },
+            {
+                id: "electronics-mobile",
+                name: "APPLE mobiles",
+                price: 499.99,
+                category: "electronics",
+                subCategory: "mobile",
+                image: "./images/apple.jpg",
+                description: "Appple :RAM:8GB Storage:512GB"
+                
+            },
+            {
+                id: "electronics-mobile",
+                name: "Realme mobiles",
+                price: 499.99,
+                category: "electronics",
+                subCategory: "mobile",
+                image: "./images/realme.jpg",
+                description: "Realme :RAM:8GB Storage:512GB"
+            },
+            {
+                id: "electronics-laptops",
+                name: "Dell Laptop laptops",
+                price: 999.99,
+                category: "electronics",
+                subCategory: "laptops",
+                image: "./images/dell.jpg",
+                description: "RAM: 8GB Storage: 512GB A powerful laptop for work and gaming. "
+            },
+            {
+                id: "electronics-laptops",
+                name: "acer Laptop laptops",
+                price: 999.99,
+                category: "electronics",
+                subCategory: "laptops",
+                image: "./images/acer.jpg",
+                description: "RAM: 8GB Storage: 512GB A powerful laptop for work and gaming."
+            },
+            {
+                id: "electronics-laptops",
+                name: "APPLE Laptop laptops",
+                price: 999.99,
+                category: "electronics",
+                subCategory: "laptops",
+                image: "./images/applelap.jpg",
+                description: "RAM: 8GB Storage: 512GB A powerful laptop for work and gaming. "
+            },
+            {
+                id: "electronics-laptops",
+                name: "HP Laptop laptops",
+                price: 999.99,
+                category: "electronics",
+                subCategory: "laptops",
+                image: "./images/HP.jpg",
+                description: "RAM: 8GB Storage: 512GB A powerful laptop for work and gaming."
+            },
+            {
+                id: "electronics-laptops",
+                name: "Dell Laptop laptops",
+                price: 999.99,
+                category: "electronics",
+                subCategory: "laptops",
+                image: "./images/dell.jpg",
+                description: "RAM: 8GB Storage: 512GB A powerful laptop for work and gaming. "
+            },
+            {
+                id: "electronics-laptops",
+                name: "acer Laptop laptops",
+                price: 999.99,
+                category: "electronics",
+                subCategory: "laptops",
+                image: "./images/acer.jpg",
+                description: "RAM: 8GB Storage: 512GB A powerful laptop for work and gaming."
+            },
+            { id: "electronics-speakerss",
+            name: "Boult Bluetooth Speaker Speakers",
+            price: 99.99,
+            category: "electronics",
+            subCategory: "speakers",
+            image: "./images/Boult Bluetooth Speaker.jpg",
+            description: "Amazing party speaker."
+        },
+        { id: "electronics-speakers",
+            name: "Boat Bluetooth Speaker Speakers",
+            price: 99.99,
+            category: "electronics",
+            subCategory: "speakers",
+            image: "./images/Boat Bluetooth Speaker.jpg",
+            description: "Amazing party speaker."
+        },
+        { id: "electronics-speakers",
+            name: "JBL Bluetooth Speaker Speakers",
+            price: 99.99,
+            category: "electronics",
+            subCategory: "speakers",
+            image: "./images/JBL Bluetooth Speaker.jpg",
+            description: "Amazing party speaker."
+        },
+        { id: "electronics-speakers",
+            name: "PTron Bluetooth Speaker Speakers",
+            price: 99.99,
+            category: "electronics",
+            subCategory: "speakers",
+            image: "./images/ptron Bluetooth Speaker.jpg",
+            description: "Amazing party speaker."
+        },
+        { id: "clothing-shirts",
+         name: "Double Pocket Shirts", 
+         price: 19.99, 
+         category: "clothing", 
+         subCategory: "shirts", 
+         image: "./images/shirt1.jpg",
+         description:"Branded Cotton Shirts"
+        },
+        { id: "clothing-shirts",
+         name: "polystrene Shirts", 
+         price: 19.99, 
+         category: "clothing", 
+         subCategory: "shirts", 
+         image: "./images/polyshirt.jpg",
+         description:"Branded Cotton Shirts"
+        },
+        { id: "clothing-shirts",
+         name: "Silk Shirts", 
+         price: 19.99, 
+         category: "clothing", 
+         subCategory: "shirts", 
+         image: "./images/silkshirt.jpg",
+         description:"Branded Cotton Shirts"
+        },
+        { id: "clothing-shirts",
+         name: "Lenin Shirts", 
+         price: 19.99, 
+         category: "clothing", 
+         subCategory: "shirts", 
+         image: "./images/leninshirt.jpg",
+         description:"Branded Cotton Shirts"
+        },
+        { id: "clothing-pant", 
+        name: "Cotton Pants", 
+        price: 39.99, 
+        category: "clothing", 
+        subCategory: "pant", 
+        image: "./images/pant1.jpg",
+        description:"Branded Cotton Pants"
+     },
+     { id: "clothing-pant", 
+        name: "Corgo Pants", 
+        price: 39.99, 
+        category: "clothing", 
+        subCategory: "pant", 
+        image: "./images/corgopant.jpg",
+        description:"Branded Corgo Pants"
+     },
+     { id: "clothing-pant", 
+        name: "Formal Pants", 
+        price: 39.99, 
+        category: "clothing", 
+        subCategory: "pant", 
+        image: "./images/formalpant.jpg",
+        description:"Branded formal Pants"
+     },
+     { id: "clothing-pant", 
+        name: "Night Pants", 
+        price: 39.99, 
+        category: "clothing", 
+        subCategory: "pant", 
+        image: "./images/nightpant.jpg",
+        description:"Branded night Pants"
+     },
+     { id: "clothing-pant", 
+        name: "jeans Pants", 
+        price: 39.99, 
+        category: "clothing", 
+        subCategory: "pant", 
+        image: "./images/Jeanspant.jpg",
+        description:"Branded jeans Pants"
+     },
+    { id: "groceries-wheat", 
+    name: "Wheat Flour", 
+    price: 4.99, 
+    category: "groceries", 
+    subCategory: "wheat flour", 
+    image: "./images/Wheat flour.jpg",
+    description:"Branded jeans Pants"
+    },
+    { id: "groceries-wheat", 
+    name: "Maida Flour", 
+    price: 4.99, 
+    category: "groceries", 
+    subCategory: "Maida", 
+    image: "./images/maida.jpg",
+    description:"Oganic Maida Flour"
+    },
+    { id: "books-english-stories", 
+    name: "English Story Books", 
+    price: 14.99, 
+    category: "books", 
+    subCategory: "english-stories", 
+    image: "./images/EnglishStories.jpg",
+    description:"Entertainment English Story Books"
+    },
+    { id: "books-telugu-stories", 
+    name: "Telugu Story Books", 
+    price: 14.99, 
+    category: "books", 
+    subCategory: "telugu-stories", 
+    image: "./images/TeluguStory.jpg",
+    description:"Entertainment Telugu Story Books"
+    },
+    { id: "books-telugu-stories", 
+    name: "Tables Books", 
+    price: 14.99, 
+    category: "books", 
+    subCategory: "telugu-stories", 
+    image: "./images/TablesBoook.jpg",
+    description:"Tables Books"
+    },
+    { id: "skincare", 
+    name: "Face Cream", 
+    price: 29.99, 
+    category: "beauty", 
+    subCategory: "Skincare", 
+    image: "./images/facecream.jpg",
+    description:"face cream"
+    },
+    { id: "makeup", 
+    name: "Revlon Lipstick", 
+    price: 19.99, 
+    category: "beauty", 
+    subCategory: "Makeup", 
+    image: "./images/lipstick.jpg",
+    description:"Revlon Lipstick" },
+        ];
+
+        // Get the search query from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('query');
+
+        // Display the search query in the page
+        const searchResultsContainer = document.querySelector('.search-results');
+        if (query) {
+            // Filter products based on the search query
+            const filteredProducts = products.filter(product =>
+                product.name.toLowerCase().includes(query.toLowerCase())
+            );
+
+            // Display the search results
+            if (filteredProducts.length > 0) {
+                searchResultsContainer.innerHTML = `
+                    <h2>Search Results for: ${query}</h2>
+                    <div class="product-list">
+                        ${filteredProducts.map(product => `
+                            <div class="product-item">
+                                <img src="${product.image}" alt="${product.name}">
+                                <h3>${product.name}</h3>
+                                <p>$${product.price.toFixed(2)}</p>
+                                <p>${product.description}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                searchResultsContainer.innerHTML = `<h2>No results found for: ${query}</h2>`;
+            }
+        } else {
+            searchResultsContainer.innerHTML = `<h2>Search Results</h2>`;
+        }
+    </script>
+</body>
+</html>

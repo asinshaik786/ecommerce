@@ -1,0 +1,299 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Product View - MyShop</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+        rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="./styles.css">
+    </head>
+  <body>
+      <!-- Navbar -->
+      <nav>
+        <div class="logo">
+        <a href="index.html">MyShop</a></div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+      <!-- Product Details -->
+      <section class="product-details">
+          <div class="product-images">
+              <img id="productImage" alt="Product Image"> <!-- Remove default src -->
+          </div>
+          <div class="product-info">
+              <h1 id="productTitle">Product Title</h1>
+              <p class="price" id="productPrice">$0.00</p>
+              <p class="description" id="productDescription">This is a description of the product.</p>
+              <div class="ratings">
+                  <span>★★★★☆</span>
+              </div>
+              <button id="addToCartButton">Add to Cart</button>
+          </div>
+      </section>
+
+      <!-- Related Products -->
+      <section class="related-products">
+          <h2>Related Products</h2>
+          <div class="product-list" id="relatedProducts"></div>
+      </section>
+
+      <!-- Footer -->
+      <footer id="footer">
+          <div class="footer-top">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 footer-content">
+                  <h3> MyShop</h3>
+                  <p>
+                    Kadapa<br>
+                    Andhra Pradesh<br>
+                    India<br>
+                  </p>
+                  <strong>Phone:</strong> +91 8121401037 <br>
+                  <strong>Email:</strong>shaiksoftwaresolutions@gmail.com <br>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                  <h4>Usefull links</h4>
+                  <ul>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Term of Services</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                  <h4>Our Services</h4>
+                  <ul>
+                      <li><a href="#">electronics</a></li>
+                      <li><a href="#">clothings</a></li>
+                      <li><a href="#">Groceries</a></li>
+                      <li><a href="#">Books</a></li>
+                      <li><a href="#">Beaty Products</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 footer-links">
+                  <h4>Our Social Networks</h4>
+                  <div class="social-links mt-3">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-skype"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="container py-4">
+            <div class="copyright">
+              &copy;Copyright<strong><span> MyShop</span></strong>.All
+              Rights Reserved
+            </div>
+            <div class="credits">
+              Designed by <a href="#">Shaik Software Solutions</a>
+              <div class="arrow">
+                <a href="#"><i class="fa-solid fa-angle-up"></i></a>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <!--footer-->
+
+      <!-- Scroll to Top Button -->
+      <button id="scrollToTop" onclick="scrollToTop()">↑</button>
+
+      <!-- JavaScript -->
+      <script>
+          document.addEventListener('DOMContentLoaded', () => {
+      // Function to get query parameters
+      function getQueryParam(param) {
+          return new URLSearchParams(window.location.search).get(param);
+      }
+
+      // Get product details from URL
+      const productId = getQueryParam('id');
+      const productName = getQueryParam('name');
+      const productPrice = getQueryParam('price');
+      const productImage = getQueryParam('image');
+      const productCategory = getQueryParam('category');
+      const productSubCategory = getQueryParam('subCategory');
+
+      // Debugging: Log product details
+      console.log('Product ID:', productId);
+      console.log('Product Name:', productName);
+      console.log('Product Price:', productPrice);
+      console.log('Product Image:', productImage);
+      console.log('Product Category:', productCategory);
+      console.log('Product Sub-Category:', productSubCategory);
+
+      // Update the product details on the page
+      if (productId) {
+          // Set image source from URL parameter (decode URI)
+          document.getElementById('productImage').src = decodeURIComponent(productImage);
+          document.getElementById('productTitle').innerText = productName;
+          document.getElementById('productPrice').innerText = `$${productPrice}`;
+          document.getElementById('productDescription').innerText = `Category: ${productCategory}, Sub-Category: ${productSubCategory}`;
+
+          // Add event listener to the "Add to Cart" button
+          const addToCartButton = document.getElementById('addToCartButton');
+          addToCartButton.addEventListener('click', () => {
+              addToCart({
+                  id: productId,
+                  name: productName,
+                  price: parseFloat(productPrice),
+                  image: decodeURIComponent(productImage),
+                  category: productCategory,
+                  subCategory: productSubCategory,
+              });
+          });
+      } else {
+          // Default product if no details are found
+          document.getElementById('productImage').src = './images/default.jpg';
+          document.getElementById('productTitle').innerText = 'Product Not Found';
+          document.getElementById('productPrice').innerText = '$0.00';
+          document.getElementById('productDescription').innerText = 'This product is not available.';
+      }
+
+      // Sample product data for related products
+      const products = [
+    { id: "electronics-mobile", name: "Smartphone", price: 499.99, category: "electronics", subCategory: "mobile", image: "./images/vivo.jpg" },
+    { id: "electronics-mobile2", name: "Smartphone", price: 599.99, category: "electronics", subCategory: "mobile", image: "./images/oppo.jpg" },
+    { id: "electronics-mobile3", name: "Smartphone", price: 499.99, category: "electronics", subCategory: "mobile", image: "./images/oneplus.jpg" },
+    { id: "electronics-mobile4", name: "Smartphone", price: 599.99, category: "electronics", subCategory: "mobile", image: "./images/realme.jpg" },
+    { id: "electronics-mobile5", name: "Smartphone", price: 499.99, category: "electronics", subCategory: "mobile", image: "./images/apple.jpg" },
+    { id: "electronics-mobile6", name: "Smartphone", price: 599.99, category: "electronics", subCategory: "mobile", image: "./images/infinix.jpg" },
+    { id: "electronics-laptops", name: "Dell Laptop", price: 999.99, category: "electronics", subCategory: "laptops", image: "./images/dell.jpg" },
+    { id: "electronics-laptops1", name: "Acer Laptop", price: 999.99, category: "electronics", subCategory: "laptops", image: "./images/acer.jpg" },
+    { id: "electronics-laptops2", name: "Apple Laptop", price: 999.99, category: "electronics", subCategory: "laptops", image: "./images/applelap.jpg" },
+    { id: "electronics-laptops3", name: "HP Laptop", price: 999.99, category: "electronics", subCategory: "laptops", image: "./images/hp.jpg" },
+    { id: "electronics-speakers", name: "Boat Bluetooth Speaker", price: 99.99, category: "electronics", subCategory: "speakers", image: "./images/Boat Bluetooth Speaker.jpg" },
+    { id: "electronics-speakers1", name: "Boult Bluetooth Speaker", price: 79.99, category: "electronics", subCategory: "speakers", image: "./images/Boult Bluetooth Speaker.jpg" },
+    { id: "electronics-speakers2", name: "pTron Bluetooth Speaker", price: 69.99, category: "electronics", subCategory: "speakers", image: "./images/ptron Bluetooth Speaker.jpg" },
+    { id: "electronics-speakers3", name: "JBL Bluetooth Speaker", price: 100, category: "electronics", subCategory: "speakers", image: "./images/JBL Bluetooth Speaker.jpg" },
+    { id: "clothing-shirts", name: "Double Pocket Cotton Shirt", price: 19.99, category: "clothing", subCategory: "shirts", image: "./images/shirt1.jpg" },
+    { id: "clothing-shirts1", name: "Lenin Shirt", price: 19.99, category: "clothing", subCategory: "shirts", image: "./images/leninshirt.jpg" },
+    { id: "clothing-shirts2", name: "Polystrene Shirt", price: 19.99, category: "clothing", subCategory: "shirts", image: "./images/polyshirt.jpg" },
+    { id: "clothing-shirts3", name: "Silk Shirt", price: 19.99, category: "clothing", subCategory: "shirts", image: "./images/silkshirt.jpg" },
+    { id: "clothing-pant1", name: "Cotton Pant", price: 39.99, category: "clothing", subCategory: "Pants", image: "./images/pant1.jpg" },
+    { id: "clothing-pant2", name: "Jeans Pant", price: 39.99, category: "clothing", subCategory: "Pants", image: "./images/pant1.jpg" },
+    { id: "clothing-pant3", name: "Corgo Pant", price: 39.99, category: "clothing", subCategory: "Pants", image: "./images/corgopant.jpg" },
+    { id: "clothing-pant4", name: "Formal Pant", price: 39.99, category: "clothing", subCategory: "Pants", image: "./images/formalpant.jpg" },
+    { id: "clothing-pant5", name: "Night Pant", price: 39.99, category: "clothing", subCategory: "Pants", image: "./images/nightpant.jpg" },
+    { id: "groceries-wheat", name: "Wheat Flour", price: 4.99, category: "groceries", subCategory: "wheat flour", image: "./images/Wheat flour.jpg" },
+    { id: "groceries-wheat1", name: "Wheat Flour", price: 4.99, category: "groceries", subCategory: "wheat flour", image: "./images/Wheat flour.jpg" },
+    { id: "groceries-maida", name: "Organic Maida", price: 5.99, category: "groceries", subCategory: "Maida", image: "./images/Maida.jpg" },
+    { id: "groceries-maida1", name: "Organic Maida", price: 5.99, category: "groceries", subCategory: "Maida", image: "./images/Maida.jpg" },
+    { id: "books-english-stories", name: "English Stories", price: 14.99, category: "books", subCategory: "english-stories", image: "./images/EnglishStories.jpg" },
+    { id: "books-telugu-story", name: "Telugu Story", price: 19.99, category: "books", subCategory: "telugu-story", image: "./images/TeluguStory.jpg" },
+    { id: "skincare", name: "Face Cream", price: 29.99, category: "beauty", subCategory: "Skincare", image: "./images/facecream.jpg" },
+    { id: "skincare1", name: "Face Cream", price: 29.99, category: "beauty", subCategory: "Skincare", image: "./images/facecream.jpg" },
+    { id: "makeup", name: "Lipstick", price: 19.99, category: "beauty", subCategory: "Makeup", image: "./images/lipstick.jpg" }
+    
+  ];
+
+      // Function to display related products
+      function displayRelatedProducts() {
+    const relatedProductsContainer = document.getElementById('relatedProducts');
+    if (!relatedProductsContainer) {
+        console.error('Related products container not found!');
+        return;
+    }
+    relatedProductsContainer.innerHTML = '';
+
+    // Get the current product
+    const currentProduct = products.find(p => p.id === productId);
+    if (!currentProduct) return;
+
+    // Normalize category and subCategory values
+    const currentCategory = currentProduct.category.toLowerCase();
+    const currentSubCategory = currentProduct.subCategory.toLowerCase();
+
+    // Filter related products
+    const relatedProducts = products.filter(product => {
+        const productCategory = product.category.toLowerCase();
+        const productSubCategory = product.subCategory.toLowerCase();
+        return (
+            productCategory === currentCategory &&
+            productSubCategory === currentSubCategory &&
+            product.id !== productId
+        );
+    });
+
+    // Display related products
+    if (relatedProducts.length > 0) {
+        relatedProducts.forEach(product => {
+            const productItem = document.createElement('div');
+            productItem.classList.add('product-item');
+            productItem.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>$${product.price.toFixed(2)}</p>
+                <button onclick="addToCart('${product.id}')">Add to Cart</button>
+            `;
+            relatedProductsContainer.appendChild(productItem);
+        });
+    } else {
+        relatedProductsContainer.innerHTML = '<p>No related products found.</p>';
+    }
+}
+
+      // Display related products when the page loads
+      displayRelatedProducts();
+  });
+
+  // Global function to add product to cart
+  function addToCart(product) {
+      console.log('Add to Cart clicked for:', product); // Debugging: Log the product data
+
+      // Retrieve the cart from localStorage
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      console.log('Current Cart:', cart); // Debugging: Log the current cart
+
+      // Check if the product already exists in the cart
+      const existingProduct = cart.find(item => item.id === product.id);
+      if (existingProduct) {
+          // If the product exists, increase its quantity
+          existingProduct.quantity += 1;
+          console.log('Product quantity increased:', existingProduct); // Debugging
+      } else {
+          // If the product does not exist, add it to the cart
+          cart.push({ ...product, quantity: 1 });
+          console.log('Product added to cart:', product); // Debugging
+      }
+
+      // Save the updated cart to localStorage
+      localStorage.setItem("cart", JSON.stringify(cart));
+      console.log('Updated Cart:', cart); // Debugging: Log the updated cart
+
+      // Notify the user
+      alert(`${product.name} added to cart!`);
+  }
+      </script>
+
+      <!-- Bootstrap scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  </body>
+  </html>
